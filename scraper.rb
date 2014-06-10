@@ -9,9 +9,10 @@ rows = doc.xpath('//table/tbody/tr')
 
 data = []
 
-rows.each do |row|
+rows.each_with_index do |row, index|
   cols = row.xpath('td')
   data << {
+    id: index,
     stars: cols[0].xpath('span/text()').to_s,
     unit_name: cols[1].xpath('b/a/text()').to_s,
     materials: cols[4].xpath('a').map { |a| a['title'] }

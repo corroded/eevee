@@ -419,12 +419,21 @@ $(document).ready(function() {
     render();
   });
 
+  $('#clear-units').on('click', function() {
+    unitInventory = [];
+    evoMats = [];
+    totalEvoMats = {};
+    $.totalStorage('unitInventory', unitInventory);
+
+    render();
+  });
+
   function render() {
     tableBody = $('#unit-list tbody');
     tableBody.html('');
 
     $.each(unitInventory, function(index, unit) {
-      tableRow = "<tr><td class='unit'><img src='" + unit.thumbnail_url + "' /><span class='unit-name'>" + unit.text + "</span></td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + unit.materials + "</td></tr>";
+      tableRow = "<tr><td class='unit'><img class='unit-thumb' src='" + unit.thumbnail_url + "' /><span class='unit-name'>" + unit.text + "</span></td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + unit.materials + "</td></tr>";
       tableBody.append(tableRow);
     });
 
@@ -453,7 +462,6 @@ $(document).ready(function() {
     tableBody.html('');
 
     for(key in totalEvoMats) {
-      console.log(key);
       tableRow = "<tr><td>" + key + "</td><td>" + totalEvoMats[key] + "</td></tr>";
       tableBody.append(tableRow);
     }

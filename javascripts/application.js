@@ -405,7 +405,8 @@ $(document).ready(function() {
   ];
 
   var unitInventory = $.totalStorage('unitInventory') || [];
-  var evoMats;
+  var evoMats = [];
+  var totalEvoMats = {};
 
   render();
 
@@ -413,11 +414,8 @@ $(document).ready(function() {
     data: units
   }).on('change', function(selectedObject) {
     unitInventory.push(selectedObject.added);
-    evoMats = [];
-    evoMats.push(selectedObject.added.materials);
 
     $.totalStorage('unitInventory', unitInventory);
-    // console.log(unitInventory);
     render();
   });
 
@@ -426,16 +424,19 @@ $(document).ready(function() {
     tableBody.html('');
 
     $.each(unitInventory, function(index, unit) {
-      tableRow = "<tr><td>" + unit.text + "</td><td>" + unit.cost + "</td><td>" + unit.materials + "</td></tr>";
+      tableRow = "<tr><td class='unit-name'>" + unit.text + "</td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + unit.materials + "</td></tr>";
       tableBody.append(tableRow);
     });
 
     renderTotalEvoMatCounts();
+    showTotalZelCost();
   }
 
-  var totalEvoMats = {};
-
   function countEvoMats() {
+    $.each(unitInventory, function(index, unit) {
+      evoMats.push(unit.materials);
+    });
+
     // flatten the array
     evoMats = [].concat.apply([], evoMats);
 
@@ -456,5 +457,13 @@ $(document).ready(function() {
       tableRow = "<tr><td>" + key + "</td><td>" + totalEvoMats[key] + "</td></tr>";
       tableBody.append(tableRow);
     }
+  }
+
+  function showTotalZelCost() {
+    var totalCost = 0;
+    $('.unit-cost').each(function(index, unitCost) {
+      totalCost += parseInt($(unitCost).text().replace(/,/g, ''), 10);
+    });
+    $('#total-cost').text(totalCost);
   }
 });

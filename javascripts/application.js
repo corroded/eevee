@@ -404,8 +404,10 @@ $(document).ready(function() {
     {id: 401, stars: "****", text: "Royal Guard Xenon", cost: "", materials: []}
   ];
 
-  var unitInventory = [];
+  var unitInventory = $.totalStorage('unitInventory') || [];
   var evoMats;
+
+  render();
 
   $('#search-unit').select2({
     data: units
@@ -414,10 +416,10 @@ $(document).ready(function() {
     evoMats = [];
     evoMats.push(selectedObject.added.materials);
 
+    $.totalStorage('unitInventory', unitInventory);
     // console.log(unitInventory);
     render();
   });
-
 
   function render() {
     tableBody = $('#unit-list tbody');

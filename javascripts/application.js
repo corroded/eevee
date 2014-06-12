@@ -313,7 +313,7 @@ $(document).ready(function() {
     {id: 310, stars: "******", thumbnail_url: "http://img2.wikia.nocookie.net/__cb20140423042534/bravefrontierglobal/images/thumb/f/fa/Unit_ills_thum_50115.png/42px-Unit_ills_thum_50115.png", text: "Holy Guard Will", cost: "", materials: []},
     {id: 311, stars: "**", thumbnail_url: "http://img2.wikia.nocookie.net/__cb20140115061903/bravefrontierglobal/images/thumb/7/71/Unit_ills_thum_50141.png/42px-Unit_ills_thum_50141.png", text: "Traveler Alma", cost: "50,000", materials: ["Light Nymph", "Light Nymph", "Light Nymph", "Light Spirit", "Mimic"]},
     {id: 312, stars: "***", thumbnail_url: "http://img2.wikia.nocookie.net/__cb20140115061931/bravefrontierglobal/images/thumb/f/fc/Unit_ills_thum_50142.png/42px-Unit_ills_thum_50142.png", text: "Adventurer Alma", cost: "100,000", materials: ["Light Nymph", "Light Nymph", "Light Spirit", "Light Idol", "Bat Mimic"]},
-    {id: 313, stars: "****", thumbnail_url: "http://img3.wikia.nocookie.net/__cb20140115062003/bravefrontierglobal/images/thumb/0/08/Unit_ills_thum_50143.png/42px-Unit_ills_thum_50143.png", text: "Hero Alma", cost: "200,000", materials: ["Light Nymph", "Light Spirit", "Light Totem", "Light Pot", "Hero Alma"]},
+    {id: 313, stars: "****", thumbnail_url: "http://img3.wikia.nocookie.net/__cb20140115062003/bravefrontierglobal/images/thumb/0/08/Unit_ills_thum_50143.png/42px-Unit_ills_thum_50143.png", text: "Hero Alma", cost: "200,000", materials: ["Light Nymph", "Light Spirit", "Light Totem", "Light Pot"]},
     {id: 314, stars: "*****", thumbnail_url: "http://img2.wikia.nocookie.net/__cb20140420085548/bravefrontierglobal/images/thumb/b/bb/Unit_ills_thum_50144.png/42px-Unit_ills_thum_50144.png", text: "Brave Hero Alma", cost: "", materials: []},
     {id: 315, stars: "***", thumbnail_url: "http://img4.wikia.nocookie.net/__cb20140211102113/bravefrontierglobal/images/thumb/1/18/Unit_ills_thum_50152.png/42px-Unit_ills_thum_50152.png", text: "Knight Aem", cost: "100,000", materials: ["Light Nymph", "Light Nymph", "Light Idol", "Mimic"]},
     {id: 316, stars: "****", thumbnail_url: "http://img4.wikia.nocookie.net/__cb20140211092731/bravefrontierglobal/images/thumb/3/32/Unit_ills_thum_50153.png/42px-Unit_ills_thum_50153.png", text: "Champion Aem", cost: "200,000", materials: ["Light Nymph", "Light Idol", "Light Totem", "Mimic", "Bat Mimic"]},
@@ -435,12 +435,25 @@ $(document).ready(function() {
     tableBody.html('');
 
     $.each(unitInventory, function(index, unit) {
-      tableRow = "<tr><td class='unit'><img class='unit-thumb' src='" + unit.thumbnail_url + "' /><span class='unit-name'>" + unit.text + "</span></td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + unit.materials + "</td></tr>";
+      tableRow = "<tr><td class='unit'><img class='unit-thumb' src='" + unit.thumbnail_url + "' /><span class='unit-name'>" + unit.text + "</span></td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + renderEvoImages(unit.materials) + "</td></tr>";
       tableBody.append(tableRow);
     });
 
     renderTotalEvoMatCounts();
     showTotalZelCost();
+  }
+
+  function renderEvoImages(materials) {
+    materialString = '';
+    $.each(materials, function(index, material) {
+      materialString += renderEvoImage(material);
+    });
+    return materialString;
+  }
+
+  function renderEvoImage(material) {
+    materialFileName = material.toLowerCase().replace(/ /g, '_') + '.png';
+    return "<img src='images/" + materialFileName + "' alt='" + material + "' />";
   }
 
   function countEvoMats() {
@@ -464,7 +477,7 @@ $(document).ready(function() {
     tableBody.html('');
 
     for(key in totalEvoMats) {
-      tableRow = "<tr><td>" + key + "</td><td>" + totalEvoMats[key] + "</td></tr>";
+      tableRow = "<tr><td>" + renderEvoImage(key) + " <span class='material-name'>" + key + "</span></td><td>" + totalEvoMats[key] + "</td></tr>";
       tableBody.append(tableRow);
     }
   }

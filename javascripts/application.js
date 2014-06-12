@@ -414,6 +414,8 @@ $(document).ready(function() {
     data: units
   }).on('change', function(selectedObject) {
     unitInventory.push(selectedObject.added);
+    evoMats = [];
+    totalEvoMats = {};
 
     $.totalStorage('unitInventory', unitInventory);
     render();

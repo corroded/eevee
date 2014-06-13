@@ -414,10 +414,8 @@ $(document).ready(function() {
     data: units
   }).on('change', function(selectedObject) {
     unitInventory.push(selectedObject.added);
-    evoMats = [];
-    totalEvoMats = {};
 
-    $.totalStorage('unitInventory', unitInventory);
+    saveUnits();
     render();
   });
 
@@ -425,17 +423,29 @@ $(document).ready(function() {
     unitInventory = [];
     evoMats = [];
     totalEvoMats = {};
-    $.totalStorage('unitInventory', unitInventory);
 
     render();
   });
+
+  $('#unit-list').on('click', '.delete-unit', function(e) {
+    e.preventDefault();
+
+    unitInventory.splice($(this).attr('data-unit-index'), 1);
+    saveUnits();
+    render();
+    return false;
+  });
+
+  function saveUnits() {
+    $.totalStorage('unitInventory', unitInventory);
+  }
 
   function render() {
     tableBody = $('#unit-list tbody');
     tableBody.html('');
 
     $.each(unitInventory, function(index, unit) {
-      tableRow = "<tr><td class='unit'><img class='unit-thumb' src='" + unit.thumbnail_url + "' /><span class='unit-name'>" + unit.text + "</span></td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + renderEvoImages(unit.materials) + "</td></tr>";
+      tableRow = "<tr><td class='unit'><img class='unit-thumb' src='" + unit.thumbnail_url + "' /><span class='unit-name'>" + unit.text + "</span></td><td class='unit-cost'>" + unit.cost + "</td><td class='unit-materials'>" + renderEvoImages(unit.materials) + "</td><td class='actions'><a href='#' data-unit-index=" + index + " class='delete-unit btn btn-danger btn-sm'>Remove</a></td></tr>";
       tableBody.append(tableRow);
     });
 
@@ -457,6 +467,9 @@ $(document).ready(function() {
   }
 
   function countEvoMats() {
+    evoMats = [];
+    totalEvoMats = {};
+
     $.each(unitInventory, function(index, unit) {
       evoMats.push(unit.materials);
     });

@@ -415,8 +415,7 @@ $(document).ready(function() {
   }).on('change', function(selectedObject) {
     unitInventory.push(selectedObject.added);
 
-    saveUnits();
-    render();
+    saveAndRender();
   });
 
   $('#clear-units').on('click', function() {
@@ -424,17 +423,21 @@ $(document).ready(function() {
     evoMats = [];
     totalEvoMats = {};
 
-    render();
+    saveAndRender();
   });
 
   $('#unit-list').on('click', '.delete-unit', function(e) {
     e.preventDefault();
 
     unitInventory.splice($(this).attr('data-unit-index'), 1);
-    saveUnits();
-    render();
+    saveAndRender();
     return false;
   });
+
+  function saveAndRender() {
+    saveUnits();
+    render();
+  }
 
   function saveUnits() {
     $.totalStorage('unitInventory', unitInventory);

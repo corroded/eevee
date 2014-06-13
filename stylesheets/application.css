@@ -9,3 +9,13 @@
 .unit-thumb {
   margin-right: 1em;
 }
+
+.donation-box {
+  font-size: 0.9em;
+  border-top: 1px solid #ccc;
+  padding: 1em 0;
+}
+
+.donation-box form {
+  display: inline;
+}

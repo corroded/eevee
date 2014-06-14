@@ -501,7 +501,10 @@ $(document).ready(function() {
   function showTotalZelCost() {
     var totalCost = 0;
     $('.unit-cost').each(function(index, unitCost) {
-      totalCost += parseInt($(unitCost).text().replace(/,/g, ''), 10);
+      unitCost = $(unitCost).text().replace(/,/g, '');
+      if(unitCost.length > 0) {
+        totalCost += parseInt(unitCost, 10);
+      }
     });
     $('#total-cost').text(totalCost);
   }

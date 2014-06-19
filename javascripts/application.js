@@ -489,12 +489,12 @@ $(document).ready(function() {
 
   function renderTotalEvoMatCounts() {
     countEvoMats();
-    tableBody = $('#total-evo-counts tbody');
-    tableBody.html('');
+
+    $('.totem, .pot, .idol, .spirit, .nymph').text(0);
 
     for(key in totalEvoMats) {
-      tableRow = "<tr><td>" + renderEvoImage(key) + " <span class='material-name'>" + key + "</span></td><td>" + totalEvoMats[key] + "</td></tr>";
-      tableBody.append(tableRow);
+      newKey = key.toLowerCase().replace(/\b([a-z])/g, ".$1");
+      $(newKey).text(totalEvoMats[key]);
     }
   }
 

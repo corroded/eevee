@@ -19,3 +19,11 @@
 .donation-box form {
   display: inline;
 }
+
+#total-evo-counts th {
+  text-align: center;
+}
+
+.totem, .pot, .idol, .spirit, .nymph {
+  text-align: center;
+}

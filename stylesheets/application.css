@@ -20,10 +20,10 @@
   display: inline;
 }
 
-#total-evo-counts th {
+#total-evo-counts th, #total-misc-counts th {
   text-align: center;
 }
 
-.totem, .pot, .idol, .spirit, .nymph {
+.totem, .pot, .idol, .spirit, .nymph, .mimic {
   text-align: center;
 }

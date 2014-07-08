@@ -35,14 +35,16 @@
 
         <h4>Changelog:</h4>
 
-        <h5>Current Version: 0.0.10</h5>
+        <h5>Current Version: 0.0.11</h5>
         <ul>
-          <li>Changed formatting of evo mats to use a grid instead</li>
+          <li>Added new unit evolutions for the latest 6*s (Lancia, Dean, etc.)</li>
+          <li>Added mimic counts</li>
         </ul>
 
         <h5>Previous Versions:</h5>
 
         <ul>
+          <li>Changed formatting of evo mats to use a grid instead</li>
           <li>Fixed bug on total zel cost if one of the units is a max evolution</li>
           <li>Added future plans</li>
           <li>Fix bug where clearing units didn't save to the local storage</li>
@@ -91,6 +93,7 @@
           <h4>Total Zel Cost:
             <span id='total-cost'></span>
           </h4>
+
         </div>
 
         <div class='row'>
@@ -157,7 +160,33 @@
             </tbody>
           </table>
         </div>
+
+        <div class='row'>
+          <table id='total-mimic-counts' class='table table-striped'>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class='dragon'>
+                <td>Dragon Mimic</td>
+                <td class='mimic'></td>
+              </tr>
+              <tr class='bat'>
+                <td>Bat Mimic</td>
+                <td class='mimic'></td>
+              </tr>
+              <tr class='plain'>
+                <td>Mimic</td>
+                <td class='mimic'></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
 
       <div class='donation-box'>
         <span>

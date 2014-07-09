@@ -27,3 +27,13 @@
 .totem, .pot, .idol, .spirit, .nymph, .mimic {
   text-align: center;
 }
+
+.fire{background: #F2DEDE}
+.water{background: #D9EDF7}
+.earth{background: #DFF0D8}
+.thunder{background: #FCF8E3}
+.light{background: #fff;}
+.dark{background: #e7daf8}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{border-top:1px solid #fff;}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{vertical-align: middle}

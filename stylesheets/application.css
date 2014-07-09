@@ -28,56 +28,12 @@
   text-align: center;
 }
 
-.fire{
-	background: #F2DEDE
-}
+.fire{background: #F2DEDE}
+.water{background: #D9EDF7}
+.earth{background: #DFF0D8}
+.thunder{background: #FCF8E3}
+.light{background: #fff;}
+.dark{background: #e7daf8}
 
-.water{
-	background: #D9EDF7
-}
-
-.earth{
-	background: #DFF0D8
-}
-
-.thunder{
-	background: #FCF8E3
-}
-
-.light{
-	background: #fff
-}
-
-.dark{
-	background: #e7daf8
-}
-
-.fire img, .water img, .earth img, .thunder img, .light img, .dark img{
-	width: 15px;
-	height: auto;
-	margin-top: -4px
-}
-
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
-	border-top:1px solid #fff
-}
-
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
-	vertical-align: middle
-}
-
-#hero{
-	color: #fff;
-	background: #252830;
-	 padding: 80px 0;
-	margin-bottom: 60px
-}
-
-#header{
-	padding-top: 80px
-}
-
-#zel-row img{
-	margin-top: -5px
-}
-
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{border-top:1px solid #fff;}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{vertical-align: middle}

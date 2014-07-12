@@ -69,12 +69,8 @@
 #hero{
 	color: #fff;
 	background: #252830;
-	 padding: 80px 0;
+	 padding: 80px 0 0;
 	margin-bottom: 60px
-}
-
-#header{
-	padding-top: 80px
 }
 
 #zel-row img{

@@ -20,11 +20,11 @@ unit_array = []
 unit_list.each do |unit_id, unit_hash|
   unit_array << {
     id: unit_id,
-    stars: "*" * unit_hash['evo_rarity'],
+    stars: "*" * unit_hash['rarity'],
     thumbnail_url: "http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_#{unit_id}.png",
     text: unit_hash['name'],
     cost: unit_hash['amount'],
-    materials: unit_hash['mats']
+    materials: unit_hash['mats'].map { |x| x['name'] }
   }
 end
 

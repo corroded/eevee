@@ -506,7 +506,7 @@ $(document).ready(function() {
  {id:"860105", stars:"*****", thumbnail_url:"http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_860105.png", text:"Pumqueen Semira", cost:500000, materials:["Miracle Totem", "Dark Totem", "Dark Bulb", "Dark Bulb", "Metal Mimic"]},
  {id:"860124", stars:"****", thumbnail_url:"http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_860124.png", text:"Netherhound", cost:200000, materials:["Dark Totem", "Dark Bulb", "Miracle Bulb", "Dark id:ol", "Bat Mimic"]},
  {id:"860134", stars:"****", thumbnail_url:"http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_860134.png", text:"Hadaron", cost:200000, materials:["Dark Totem", "Dark Bulb", "Miracle Bulb", "Dark id:ol", "Bat Mimic"]},
- {id:"860135", stars:"*****", thumbnail_url:"http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_860135.png", text:"Heartless Hadaron", cost:500000, materials:["Turbo Netherhound", "Dark Totem", "Dark Bulb", "Miracle Bulb", "Metal Mimic"]}]
+ {id:"860135", stars:"*****", thumbnail_url:"http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_860135.png", text:"Heartless Hadaron", cost:500000, materials:["Turbo Netherhound", "Dark Totem", "Dark Bulb", "Miracle Bulb", "Metal Mimic"]}
  ];
 
   var unitInventory = $.totalStorage('unitInventory') || [];

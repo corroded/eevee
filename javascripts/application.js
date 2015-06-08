@@ -656,7 +656,7 @@ $(document).ready(function() {
 
   function renderEvoImage(material) {
     materialFileName = material.toLowerCase().replace(/ /g, '_') + '.png';
-    return "<img src='images/" + materialFileName + "' alt='" + material + "' />";
+    return "<img width=42 height=42 src='images/" + materialFileName + "' alt='" + material + "' />";
   }
 
   function countEvoMats() {

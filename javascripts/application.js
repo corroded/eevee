@@ -680,7 +680,7 @@ $(document).ready(function() {
   function renderTotalEvoMatCounts() {
     countEvoMats();
 
-    $('.totem, .pot, .idol, .spirit, .nymph, .mimic, .bulb').text(0);
+    $('.mech-god, .totem, .pot, .idol, .spirit, .nymph, .mimic, .bulb, .tone').text(0);
 
     for(key in totalEvoMats) {
       newKey = key.toLowerCase().replace(/\b([a-z])/g, ".$1");

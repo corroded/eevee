@@ -1,6 +1,7 @@
 require 'json'
 require 'net/https'
 require 'uri'
+require 'pry'
 
 uri = URI.parse("https://raw.githubusercontent.com/Deathmax/bravefrontier_data/master/evo_list.json")
 http = Net::HTTP.new(uri.host, uri.port)
@@ -18,17 +19,11 @@ unit_list = JSON.parse(response.body)
 unit_array = []
 
 unit_list.each do |unit_id, unit_hash|
-  unit_array << {
-    id: unit_id,
-    stars: "*" * unit_hash['rarity'],
-    thumbnail_url: "http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_#{unit_id}.png",
-    text: unit_hash['name'],
-    cost: unit_hash['amount'],
-    materials: unit_hash['mats'].map { |x| x['name'] }
-  }
+  # unit_array << {
+  puts "{ id: '#{unit_id}', stars: '#{'*' * unit_hash['rarity']}', thumbnail_url: 'http://2.cdn.bravefrontier.gumi.sg/content/unit/img/unit_ills_thum_#{unit_id}.png', text: \"#{unit_hash['name']}\", cost: '#{unit_hash['amount']}', materials: #{unit_hash['mats'].map { |x| x['name'] }} },"
 end
 
-puts unit_array
+# puts unit_array
 
 #{
 #  "amount"=>200000,
